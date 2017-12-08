@@ -7,7 +7,7 @@ from logging import getLogger
 from lazy import lazy
 
 from lms.djangoapps.grades.models import BlockRecord, PersistentSubsectionGrade
-from lms.djangoapps.grades.scores import get_score, possibly_scored
+from lms.djangoapps.grades.scores import get_score, possibly_scored, compute_percent
 from xmodule import block_metadata_utils, graders
 from xmodule.graders import AggregatedScore, ShowCorrectness
 
@@ -160,13 +160,16 @@ class SubsectionGrade(SubsectionGradeBase):
             self._log_event(log.debug, u"update_or_create_model", student)
             return PersistentSubsectionGrade.update_or_create_grade(**self._persisted_model_params(student))
 
-    @property
     def _should_persist_per_attempted(self):
         """
         Returns whether the SubsectionGrade's model should be
         persisted based on settings and attempted status.
         """
         return not waffle().is_enabled(WRITE_ONLY_IF_ENGAGED) or self.all_total.first_attempted is not None
+
+    @property
+    def percent_graded(self):
+        return compute_percent(self.graded_total.earned, self.graded_total.possible)
 
     def _compute_block_score(
             self,
