@@ -11,7 +11,7 @@ from xmodule import block_metadata_utils
 
 from .subsection_grade import ZeroSubsectionGrade
 from .subsection_grade_factory import SubsectionGradeFactory
-from .scores import compute_percent
+from ..scores import compute_percent
 
 
 def uniqueify(iterable):
