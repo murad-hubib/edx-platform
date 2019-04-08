@@ -7,11 +7,28 @@ from datetime import datetime, timedelta
 
 import ddt
 from pytz import UTC
-from lms.djangoapps.grades.scores import compute_percent
 from xmodule import graders
 from xmodule.graders import (
     AggregatedScore, ProblemScore, ShowCorrectness, aggregate_scores
 )
+
+# TODO
+# compute_percent exists in lms.djangoapps.grades.scores, importing here in ginkgo is causing import issues,
+# for testing purpose same function is copied here. When codebase will shift to Hawthorn we can use compute_percent
+# from the following path
+# from lms.djangoapps.grades.scores import compute_percent
+from numpy import around
+
+
+def compute_percent(earned, possible):
+    """
+     Returns the percentage of the given earned and possible values.
+     """
+    if possible > 0:
+        # Rounds to two decimal places.
+        return around(earned / possible, decimals=2)
+    else:
+        return 0.0
 
 
 class GradesheetTest(unittest.TestCase):
