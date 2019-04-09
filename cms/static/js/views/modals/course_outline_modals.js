@@ -496,8 +496,8 @@ define(['jquery', 'backbone', 'underscore', 'gettext', 'js/views/baseview',
         afterRender: function() {
             AbstractEditor.prototype.afterRender.call(this);
             var prereq = this.model.get('prereq') || '';
-            var prereqMinScore = this.model.get('prereq_min_score') || '100';
-            var prereqMinCompletion = this.model.get('prereq_min_completion') || '100';
+            var prereqMinScore = this.model.get('prereq_min_score') || '100'; // eslint-disable-line vars-on-top
+            var prereqMinCompletion = this.model.get('prereq_min_completion') || '100'; // eslint-disable-line vars-on-top
             this.$('#is_prereq').prop('checked', this.model.get('is_prereq'));
             this.$('#prereq option[value="' + prereq + '"]').prop('selected', true);
             this.$('#prereq_min_score').val(prereqMinScore);
