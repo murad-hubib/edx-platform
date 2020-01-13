@@ -567,14 +567,14 @@ EDX_API_KEY = 'test_api_key'
 TEST_MODE = True
 
 INSTALLED_APPS += (
-    'course_metadata',
-    'edx_solutions_api_integration',
-    'social_engagement',
-    'gradebook',
-    'progress',
-    'edx_solutions_projects',
-    'edx_solutions_organizations',
-    'mobileapps',
+    # 'course_metadata',
+    # 'edx_solutions_api_integration',
+    # 'social_engagement',
+    # 'gradebook',
+    # 'progress',
+    # 'edx_solutions_projects',
+    # 'edx_solutions_organizations',
+    # 'mobileapps',
 )
 
 

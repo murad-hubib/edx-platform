@@ -54,13 +54,8 @@ jobs:
               name: Restores cache if any of the requirements file have not changed since the previous run
               key: >-
                 virtual-environment-cache-v1
-                -{{ checksum "requirements/edx/pre.txt" }}
-                -{{ checksum "requirements/edx/base.txt" }}
-                -{{ checksum "requirements/edx/github.txt" }}
-                -{{ checksum "requirements/edx/local.txt" }}
+                -{{ checksum "requirements/edx/development.txt" }}
                 -{{ checksum "requirements/edx/custom.txt" }}
-                -{{ checksum "requirements/edx/paver.txt" }}
-                -{{ checksum "requirements/edx/post.txt" }}
 
      - restore_cache:
          name: Restores cache if the package.json file have not changed since the previous run
@@ -84,12 +79,8 @@ jobs:
            source ~/virtualenvs/venv-2.7.12/bin/activate
            npm install
            pip install google-compute-engine
-           pip install --exists-action w -r requirements/edx/pre.txt
-           pip install --exists-action w -r requirements/edx/base.txt
-           pip install --exists-action w -r requirements/edx/github.txt
-           pip install --exists-action w -r requirements/edx/local.txt
+           pip install --exists-action w -r requirements/edx/development.txt
            pip install --exists-action w -r requirements/edx/custom.txt
-           pip install --exists-action w -r requirements/edx/paver.txt
 
            if [ -e requirements/edx/post.txt ]; then pip install --exists-action w -r requirements/edx/post.txt ; fi
            pip install coveralls==1.0
@@ -114,13 +105,8 @@ jobs:
      - save_cache:
          key: >-
            virtual-environment-cache-v1
-           -{{ checksum "requirements/edx/pre.txt" }}
-           -{{ checksum "requirements/edx/base.txt" }}
-           -{{ checksum "requirements/edx/github.txt" }}
-           -{{ checksum "requirements/edx/local.txt" }}
+           -{{ checksum "requirements/edx/development.txt" }}
            -{{ checksum "requirements/edx/custom.txt" }}
-           -{{ checksum "requirements/edx/paver.txt" }}
-           -{{ checksum "requirements/edx/post.txt" }}
 
          paths:
             - ~/virtualenvs/venv-2.7.12
