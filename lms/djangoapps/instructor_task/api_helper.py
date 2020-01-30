@@ -61,7 +61,9 @@ def _reserve_task(course_id, task_type, task_key, task_input, requester):
     task_id = _get_running_task_id(course_id, task_type, task_key)
     if task_id:
         log.warning("Duplicate task found for task_type %s and task_key %s", task_type, task_key)
-        raise AlreadyRunningError(task_id)
+        error = AlreadyRunningError("requested task is already running")
+        setattr(error, 'running_task_id', task_id)
+        raise error
 
     try:
         most_recent_id = InstructorTask.objects.latest('id').id
