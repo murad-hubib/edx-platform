@@ -28,7 +28,7 @@ class AlreadyRunningError(Exception):
     pass
 
 
-def _task_is_running(course_id, task_type, task_key):
+def _get_running_task_id(course_id, task_type, task_key):
     """Checks if a particular task is already running"""
 
     # Filtering out a task till the last day as probably no one will take time longer than a day to be completed.
@@ -39,7 +39,7 @@ def _task_is_running(course_id, task_type, task_key):
     # exclude states that are "ready" (i.e. not "running", e.g. failure, success, revoked):
     for state in READY_STATES:
         running_tasks = running_tasks.exclude(task_state=state)
-    return len(running_tasks) > 0
+    return running_tasks.first().task_id if len(running_tasks) > 0 else None
 
 
 def _reserve_task(course_id, task_type, task_key, task_input, requester):
@@ -58,9 +58,10 @@ def _reserve_task(course_id, task_type, task_key, task_input, requester):
     put in further safeguards.
     """
 
-    if _task_is_running(course_id, task_type, task_key):
+    task_id = _get_running_task_id(course_id, task_type, task_key)
+    if task_id:
         log.warning("Duplicate task found for task_type %s and task_key %s", task_type, task_key)
-        raise AlreadyRunningError("requested task is already running")
+        raise AlreadyRunningError(task_id)
 
     try:
         most_recent_id = InstructorTask.objects.latest('id').id
