@@ -1017,7 +1017,7 @@ class ProblemResponseReport(DeveloperErrorViewMixin, APIView):
                 "Check the 'Pending Tasks' table for the status of the task. "
                 "When completed, the report will be available for download in the table below."
             )
-            return JsonResponse({"status": already_running_status, "task_id": getattr(e, 'running_task_id')})
+            return JsonResponse({"status": already_running_status, "task_id": getattr(e, 'running_task_id', None)})
 
 
 @require_POST
