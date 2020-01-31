@@ -41,6 +41,7 @@ def _task_is_running(course_id, task_type, task_key):
         running_tasks = running_tasks.exclude(task_state=state)
     return len(running_tasks) > 0
 
+
 def _get_running_task_id(course_id, task_type, task_key):
     """Returns task_id for running task with task_key, course_id"""
 
@@ -70,7 +71,6 @@ def _reserve_task(course_id, task_type, task_key, task_input, requester):
     tasks simultaneously.  This is deemed a small enough risk to not
     put in further safeguards.
     """
-
 
     if _task_is_running(course_id, task_type, task_key):
         log.warning("Duplicate task found for task_type %s and task_key %s", task_type, task_key)
