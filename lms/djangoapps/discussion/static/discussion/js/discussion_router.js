@@ -143,7 +143,10 @@
                     return $('.forum-content').fadeOut({
                         duration: 200,
                         complete: function() {
-                            return self.newPostView.$el.fadeIn(200).focus();
+                            let attr = self.newPostView.$el.fadeIn(200).focus();
+                            $('.thread-title').focus();
+                            return attr;
+
                         }
                     });
                 },
