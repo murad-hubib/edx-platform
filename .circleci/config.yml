@@ -28,6 +28,8 @@ jobs:
            cd Python-2.7.12
            ./configure
            sudo make install
+           echo "PIP version"
+           pip -V
 
      - run:
          name: Installing and creating virtual environment

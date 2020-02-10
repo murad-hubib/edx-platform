@@ -75,6 +75,12 @@ else
             ;;
 
         1)  # run all of the lms unit tests
+            echo "pip version"
+            pip -V
+            echo "pyenv list"
+            pyenv versions
+            echo "PATH: "
+            echo $PATH
             paver test_system -s lms --with-flaky --cov-args="-p" --with-xunitmp --disable-migrations
             ;;
 
