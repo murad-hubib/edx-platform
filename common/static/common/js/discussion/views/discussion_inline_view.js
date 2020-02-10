@@ -227,6 +227,7 @@
             this.toggleDiscussionBtn.addClass('shown');
             this.toggleDiscussionBtn.find('.button-text').text(gettext('Hide Discussion'));
             this.showed = true;
+            $('.new-post-btn').focusout();
             $('.thread-title').focus();
         },
 
