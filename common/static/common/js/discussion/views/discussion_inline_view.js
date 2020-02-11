@@ -251,10 +251,9 @@
             }
         }
     });
+    $(document).on('click', '.discussion-show.btn', function() {
+        if ($('.add_post_btn_container').hasClass('is-hidden') && $(this).hasClass('shown')) {
+            $('.thread-title').focus();
+        }
+    });
 }).call(window);
-
-$(document).on('click', '.discussion-show.btn', function() {
-    if ($('.add_post_btn_container').hasClass('is-hidden') && $(this).hasClass('shown')) {
-    $('.thread-title').focus();
-    }
-});
