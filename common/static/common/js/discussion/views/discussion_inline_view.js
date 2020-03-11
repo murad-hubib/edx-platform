@@ -69,6 +69,7 @@
                 dataType: 'json',
                 success: function(response, textStatus) {
                     self.renderDiscussion(self.$el, response, textStatus, discussionId);
+                    $('.new-post-btn').focus();
                 },
                 error: error
             });
@@ -254,6 +255,8 @@
     $(document).on('click', '.discussion-show.btn', function() {
         if ($('.add_post_btn_container').hasClass('is-hidden') && $(this).hasClass('shown')) {
             $('.thread-title').focus();
+        } else if (!$('.add_post_btn_container').hasClass('is-hidden')) {
+            $('.new-post-btn').focus();
         }
     });
 }).call(window);
