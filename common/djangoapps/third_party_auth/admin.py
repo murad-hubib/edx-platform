@@ -126,8 +126,6 @@ class LTIProviderConfigAdmin(KeyedConfigurationModelAdmin):
     """ Django Admin class for LTIProviderConfig """
 
     exclude = (
-        'icon_class',
-        'icon_image',
         'secondary',
     )
 
