@@ -48,12 +48,22 @@ def lti_launch(request, course_id, usage_id):
           pair
     """
     if not settings.FEATURES['ENABLE_LTI_PROVIDER']:
+        log.error(
+            'LTI Provider not enabled in settings for course %s and usage_id %s',
+            course_id,
+            usage_id,
+        )
         return HttpResponseForbidden()
 
     # Check the LTI parameters, and return 400 if any required parameters are
     # missing
     params = get_required_parameters(request.POST)
     if not params:
+        log.error(
+            'LTI required parameters missing for course %s and usage_id %s.',
+            course_id,
+            usage_id,
+        )
         return HttpResponseBadRequest()
     params.update(get_optional_parameters(request.POST))
 
@@ -65,10 +75,20 @@ def lti_launch(request, course_id, usage_id):
             params['oauth_consumer_key']
         )
     except LtiConsumer.DoesNotExist:
+        log.error(
+            'LTI Consumer not found for course %s, usage_id %s.',
+            course_id,
+            usage_id,
+        )
         return HttpResponseForbidden()
 
     # Check the OAuth signature on the message
     if not SignatureValidator(lti_consumer).verify(request):
+        log.error(
+            'LTI Consumer not valid for course %s, usage_id %s',
+            course_id,
+            usage_id,
+        )
         return HttpResponseForbidden()
 
     # Add the course and usage keys to the parameters array
@@ -114,6 +134,7 @@ def get_required_parameters(dictionary, additional_params=None):
     additional_params = additional_params or []
     for key in REQUIRED_PARAMETERS + additional_params:
         if key not in dictionary:
+            log.error('Required LTI parameter %s not found', key)
             return None
         params[key] = dictionary[key]
     return params
