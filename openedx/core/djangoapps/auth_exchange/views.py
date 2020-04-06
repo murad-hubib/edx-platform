@@ -16,13 +16,11 @@ from django.contrib.auth import login
 from django.http import HttpResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from oauth2_provider import models as dot_models
 from oauth2_provider.views.base import TokenView as DOTAccessTokenView
 from provider import constants
 from provider import scope as dop_scope
 from provider.oauth2.views import AccessTokenView as DOPAccessTokenView
 from rest_framework import permissions
-from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -143,18 +141,6 @@ class LoginWithAccessTokenView(APIView):
             if backend.get_user(user.id):
                 return backend_path
 
-    @staticmethod
-    def _is_grant_password(access_token):
-        """
-        Check if the access token provided is DOT based and has password type grant.
-        """
-        token_query = dot_models.AccessToken.objects.select_related('user')
-        dot_token = token_query.filter(token=access_token).first()
-        if dot_token and dot_token.application.authorization_grant_type == dot_models.Application.GRANT_PASSWORD:
-            return True
-
-        return False
-
     @method_decorator(csrf_exempt)
     def post(self, request):
         """
@@ -168,12 +154,6 @@ class LoginWithAccessTokenView(APIView):
 
         if not hasattr(request.user, 'backend'):
             request.user.backend = self._get_path_of_arbitrary_backend_for_user(request.user)
-
-        if not self._is_grant_password(request.auth):
-            raise AuthenticationFailed({
-                u'error_code': u'non_supported_token',
-                u'developer_message': u'Only support DOT type access token with grant type password. '
-            })
 
         login(request, request.user)  # login generates and stores the user's cookies in the session
         return HttpResponse(status=204)  # cookies stored in the session are returned with the response

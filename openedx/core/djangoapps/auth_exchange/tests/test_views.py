@@ -193,20 +193,6 @@ class TestLoginWithAccessTokenView(TestCase):
         dot_application = dot_factories.ApplicationFactory(user=self.user, authorization_grant_type=grant_type)
         return dot_factories.AccessTokenFactory(user=self.user, application=dot_application)
 
-    def _create_dop_access_token(self):
-        """
-        Create dop based access token
-        """
-        return AccessToken.objects.create(
-            token="test_access_token",
-            client=self.oauth2_client,
-            user=self.user,
-        )
-
-    def test_dop_unsupported(self):
-        access_token = self._create_dop_access_token()
-        self._verify_response(access_token, expected_status_code=401)
-
     def test_invalid_token(self):
         self._verify_response("invalid_token", expected_status_code=401)
         self.assertNotIn("session_key", self.client.session)
@@ -216,7 +202,3 @@ class TestLoginWithAccessTokenView(TestCase):
 
         self._verify_response(access_token, expected_status_code=204, expected_cookie_name='sessionid')
         self.assertEqual(int(self.client.session['_auth_user_id']), self.user.id)
-
-    def test_dot_client_credentials_unsupported(self):
-        access_token = self._create_dot_access_token()
-        self._verify_response(access_token, expected_status_code=401)
