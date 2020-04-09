@@ -950,6 +950,8 @@ USE_TZ = True
 SESSION_COOKIE_SECURE = False
 SESSION_SAVE_EVERY_REQUEST = False
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE_FORCE_ALL = True
 
 # CMS base
 CMS_BASE = 'localhost:8001'
@@ -1337,6 +1339,9 @@ MIDDLEWARE_CLASSES = [
     'edx_rest_framework_extensions.middleware.RequestMetricsMiddleware',
 
     'edx_rest_framework_extensions.auth.jwt.middleware.EnsureJWTAuthSettingsMiddleware',
+
+    # Sets SameSite flag for session and csrf cookies in legacy versions of Django.
+    'django_cookies_samesite.middleware.CookiesSameSite',
 
     # This must be last
     'openedx.core.djangoapps.site_configuration.middleware.SessionCookieDomainOverrideMiddleware',
