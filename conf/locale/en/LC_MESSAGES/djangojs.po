@@ -1,33 +1,33 @@
 # #-#-#-#-#  djangojs-partial.po (0.1a)  #-#-#-#-#
 # edX translation file.
-# Copyright (C) 2017 EdX
+# Copyright (C) 2020 EdX
 # This file is distributed under the GNU AFFERO GENERAL PUBLIC LICENSE.
-# EdX Team <info@edx.org>, 2017.
+# EdX Team <info@edx.org>, 2020.
 # 
 # #-#-#-#-#  djangojs-studio.po (0.1a)  #-#-#-#-#
 # edX translation file.
-# Copyright (C) 2017 EdX
+# Copyright (C) 2020 EdX
 # This file is distributed under the GNU AFFERO GENERAL PUBLIC LICENSE.
-# EdX Team <info@edx.org>, 2017.
+# EdX Team <info@edx.org>, 2020.
 # 
 # #-#-#-#-#  underscore.po (0.1a)  #-#-#-#-#
 # edX translation file
-# Copyright (C) 2017 edX
+# Copyright (C) 2020 edX
 # This file is distributed under the GNU AFFERO GENERAL PUBLIC LICENSE.
-# EdX Team <info@edx.org>, 2017.
+# EdX Team <info@edx.org>, 2020.
 # 
 # #-#-#-#-#  underscore-studio.po (0.1a)  #-#-#-#-#
 # edX translation file
-# Copyright (C) 2017 edX
+# Copyright (C) 2020 edX
 # This file is distributed under the GNU AFFERO GENERAL PUBLIC LICENSE.
-# EdX Team <info@edx.org>, 2017.
+# EdX Team <info@edx.org>, 2020.
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1a\n"
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
-"POT-Creation-Date: 2017-06-21 14:29+0000\n"
-"PO-Revision-Date: 2017-06-21 14:30:50.629384\n"
+"POT-Creation-Date: 2020-05-14 13:39+0000\n"
+"PO-Revision-Date: 2020-05-14 13:40:18.420775\n"
 "Last-Translator: \n"
 "Language-Team: openedx-translation <openedx-translation@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -242,6 +242,7 @@ msgstr ""
 #: common/static/common/js/discussion/views/discussion_thread_list_view.js
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 #: common/static/common/js/discussion/views/response_comment_view.js
+#: lms/djangoapps/discussion/static/discussion/js/discussion_router.js
 #: lms/static/js/student_account/views/FinishAuthView.js
 #: lms/static/js/verify_student/views/payment_confirmation_step_view.js
 #: lms/static/js/verify_student/views/step_view.js
@@ -2430,6 +2431,10 @@ msgid_plural "This annotation has %(count)s flags."
 msgstr[0] ""
 msgstr[1] ""
 
+#: lms/djangoapps/discussion/static/discussion/js/discussion_router.js
+msgid "You are not permitted to view this discussion."
+msgstr ""
+
 #: lms/djangoapps/support/static/support/js/views/certificates.js
 msgid "An unexpected error occurred.  Please try again."
 msgstr ""
@@ -2733,6 +2738,7 @@ msgid "Search teams"
 msgstr ""
 
 #: lms/djangoapps/teams/static/teams/js/views/teams_tab.js
+#: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
 #: lms/djangoapps/discussion/static/discussion/templates/fake-breadcrumbs.underscore
 msgid "All Topics"
 msgstr ""
@@ -2792,11 +2798,16 @@ msgid "Close Calculator"
 msgstr ""
 
 #: lms/static/coffee/src/customwmd.js
-msgid "HTML preview of post"
+msgid "Your question or idea"
 msgstr ""
 
 #: lms/static/coffee/src/customwmd.js
-msgid "Post body"
+#: common/static/common/templates/discussion/thread.underscore
+msgid "Add a response:"
+msgstr ""
+
+#: lms/static/coffee/src/customwmd.js
+msgid "HTML preview of post"
 msgstr ""
 
 #: lms/static/js/Markdown.Editor.js
@@ -4197,6 +4208,23 @@ msgid ""
 msgstr ""
 
 #: lms/static/js/student_account/views/account_settings_factory.js
+msgid "Email Address"
+msgstr ""
+
+#: lms/static/js/student_account/views/account_settings_factory.js
+msgid ""
+"The email address you use to sign in. Communications from {platform_name} "
+"and your courses are sent to this address."
+msgstr ""
+
+#: lms/static/js/student_account/views/account_settings_factory.js
+msgid ""
+"The email address you use to sign in. Communications from {platform_name} "
+"and your courses are sent to this address.  To change the email address, "
+"please contact {contact_email}."
+msgstr ""
+
+#: lms/static/js/student_account/views/account_settings_factory.js
 msgid "Basic Account Information"
 msgstr ""
 
@@ -4223,16 +4251,6 @@ msgid ""
 "Other learners never see your full name. Make sure to enter your name "
 "exactly as it appears on your government-issued photo ID, including any non-"
 "Roman characters."
-msgstr ""
-
-#: lms/static/js/student_account/views/account_settings_factory.js
-msgid "Email Address"
-msgstr ""
-
-#: lms/static/js/student_account/views/account_settings_factory.js
-msgid ""
-"The email address you use to sign in. Communications from {platform_name} "
-"and your courses are sent to this address."
 msgstr ""
 
 #: lms/static/js/student_account/views/account_settings_factory.js
@@ -5898,6 +5916,7 @@ msgid "Unpin"
 msgstr ""
 
 #: common/static/common/templates/discussion/forum-action-report.underscore
+#: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
 msgid "Report abuse"
 msgstr ""
 
@@ -6001,6 +6020,7 @@ msgstr ""
 #: common/static/common/templates/discussion/response-comment-show.underscore
 #: common/static/common/templates/discussion/thread-response-show.underscore
 #: common/static/common/templates/discussion/thread-show.underscore
+#: common/templates/js/discussion/thread-show.underscore
 msgid "Reported"
 msgstr ""
 
@@ -6017,6 +6037,10 @@ msgid "Update post"
 msgstr ""
 
 #: common/static/common/templates/discussion/thread-list-item.underscore
+msgid "Never Read"
+msgstr ""
+
+#: common/static/common/templates/discussion/thread-list-item.underscore
 msgid "discussion"
 msgstr ""
 
@@ -6029,7 +6053,12 @@ msgid "unanswered question"
 msgstr ""
 
 #: common/static/common/templates/discussion/thread-list-item.underscore
+msgid "discussion posted"
+msgstr ""
+
+#: common/static/common/templates/discussion/thread-list-item.underscore
 #: common/static/common/templates/discussion/thread-show.underscore
+#: common/templates/js/discussion/thread-show.underscore
 msgid "Pinned"
 msgstr ""
 
@@ -6039,6 +6068,19 @@ msgstr ""
 
 #: common/static/common/templates/discussion/thread-list-item.underscore
 msgid "Community TA"
+msgstr ""
+
+#: common/static/common/templates/discussion/thread-list-item.underscore
+#: common/static/common/templates/discussion/thread-show.underscore
+#: common/templates/js/discussion/thread-show.underscore
+#, python-format
+msgid "This post is visible only to %(group_name)s."
+msgstr ""
+
+#: common/static/common/templates/discussion/thread-list-item.underscore
+#: common/static/common/templates/discussion/thread-show.underscore
+#: common/templates/js/discussion/thread-show.underscore
+msgid "This post is visible to everyone."
 msgstr ""
 
 #: common/static/common/templates/discussion/thread-list-item.underscore
@@ -6107,21 +6149,13 @@ msgid "question posted %(time_ago)s by %(author)s"
 msgstr ""
 
 #: common/static/common/templates/discussion/thread-show.underscore
+#: common/templates/js/discussion/thread-show.underscore
 msgid "Closed"
 msgstr ""
 
 #: common/static/common/templates/discussion/thread-show.underscore
 #, python-format
 msgid "Related to: %(courseware_title_linked)s"
-msgstr ""
-
-#: common/static/common/templates/discussion/thread-show.underscore
-#, python-format
-msgid "This post is visible only to %(group_name)s."
-msgstr ""
-
-#: common/static/common/templates/discussion/thread-show.underscore
-msgid "This post is visible to everyone."
 msgstr ""
 
 #: common/static/common/templates/discussion/thread-type.underscore
@@ -6131,7 +6165,7 @@ msgstr ""
 #: common/static/common/templates/discussion/thread-type.underscore
 msgid ""
 "Questions raise issues that need answers. Discussions share ideas and start "
-"conversations. (Required)"
+"conversations."
 msgstr ""
 
 #: common/static/common/templates/discussion/thread-type.underscore
@@ -6146,16 +6180,64 @@ msgstr ""
 msgid "Add a Response"
 msgstr ""
 
-#: common/static/common/templates/discussion/thread.underscore
-msgid "Add a response:"
-msgstr ""
-
 #: common/static/common/templates/discussion/topic.underscore
 msgid "Topic area"
 msgstr ""
 
 #: common/static/common/templates/discussion/topic.underscore
 msgid "Add your post to a relevant topic to help others find it. (Required)"
+msgstr ""
+
+#: common/templates/js/discussion/thread-show.underscore
+#, python-format
+msgid "%(post_type)s posted %(time_ago)s by %(author)s"
+msgstr ""
+
+#: common/templates/js/discussion/thread-show.underscore
+#, python-format
+msgid "(this post is about %(courseware_title_linked)s)"
+msgstr ""
+
+#: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
+msgid "Discussions"
+msgstr ""
+
+#: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
+msgid "How to use discussions"
+msgstr ""
+
+#: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
+msgid "find discussions"
+msgstr ""
+
+#: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
+msgid "Use the"
+msgstr ""
+
+#: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
+msgid " menu to see a list of all topics."
+msgstr ""
+
+#: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
+msgid "Search and filter all posts to find specific topics or posts."
+msgstr ""
+
+#: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
+msgid "engage with posts"
+msgstr ""
+
+#: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
+msgid "Vote for goods post and responses"
+msgstr ""
+
+#: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
+msgid "Follow or unfollow posts"
+msgstr ""
+
+#: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
+msgid ""
+"Earn points for your engagement by adding a new post of responding to an "
+"existing post."
 msgstr ""
 
 #: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
@@ -6194,10 +6276,6 @@ msgstr ""
 
 #: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
 msgid "Report abuse, topics, and responses"
-msgstr ""
-
-#: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
-msgid "Follow or unfollow posts"
 msgstr ""
 
 #: lms/djangoapps/discussion/static/discussion/templates/discussion-home.underscore
