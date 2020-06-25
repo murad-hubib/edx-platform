@@ -377,6 +377,7 @@
     "Due date cannot be before start date.": "\u8bfe\u7a0b\u7684\u7ed3\u675f\u65e5\u671f\u4e0d\u80fd\u5728\u5f00\u59cb\u65e5\u671f\u4e4b\u524d\u3002", 
     "Duplicating": "\u6b63\u5728\u590d\u5236", 
     "Duration (sec)": "\u6301\u7eed\u65f6\u95f4(\u79d2)", 
+    "Earn points for your engagement by adding a new post or responding to an existing post.": "\u901a\u8fc7\u6dfb\u52a0\u65b0\u7684\u6587\u7ae0\u6216\u8005\u56de\u590d\u73b0\u6709\u6587\u7ae0\uff0c\u8d62\u5f97\u53c2\u4e0e\u79ef\u5206\u3002", 
     "Earned %(created)s.": "\u5df2\u83b7\u5f97 %(created)s\u3002", 
     "Edit": "\u7f16\u8f91", 
     "Edit HTML": "\u7f16\u8f91 HTML", 

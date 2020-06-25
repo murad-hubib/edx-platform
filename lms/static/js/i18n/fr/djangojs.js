@@ -468,6 +468,7 @@
     "Duplicating": "Dupliquer", 
     "Duration": "Dur\u00e9e", 
     "Duration (sec)": "Dur\u00e9e (sec)", 
+    "Earn points for your engagement by adding a new post or responding to an existing post.": "Gagnez des points pour vous remercier de votre implication lorsque vous ajoutez un nouveau message ou r\u00e9pondez \u00e0 un message existant.", 
     "EdX doesn\\'t have a timed transcript for this video. Please upload an .srt file.": "EdX ne dispose pas de transcription synchronis\u00e9e pour cette vid\u00e9o. Veuillez t\u00e9l\u00e9verser un fichier de transcription .srt.", 
     "Edit": "\u00c9diter", 
     "Edit %(display_name)s (required)": "Modifier %(display_name)s (requis)", 
