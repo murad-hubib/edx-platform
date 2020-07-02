@@ -3664,3 +3664,6 @@ plugin_settings.add_plugins(__name__, plugin_constants.ProjectType.LMS, plugin_c
 ASSETS_ACCESS_BY_TOKEN = True
 ASSETS_TOKEN_ENCRYPTION_KEY = 'secret'
 ASSETS_TOKEN_TTL = 600
+
+USE_X_FORWARDED_PORT = True
+RESPECT_X_FORWARDED_HEADERS = True
