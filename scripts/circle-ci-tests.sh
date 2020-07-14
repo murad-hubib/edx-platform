@@ -45,6 +45,7 @@ if [ "$CIRCLE_NODE_TOTAL" == "1" ] ; then
 
     exit $EXIT
 else
+    paver test_system -t lms/djangoapps/instructor_task/tests/test_tasks_helper.py
     # Split up the tests to run in parallel on 4 containers
     case $CIRCLE_NODE_INDEX in
         0)  # run the quality metrics
