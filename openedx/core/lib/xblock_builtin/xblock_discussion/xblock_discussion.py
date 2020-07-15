@@ -5,7 +5,7 @@ Discussion XBlock
 import logging
 
 from django.templatetags.static import static
-from django.utils.translation import get_language_bidi
+from django.utils.translation import get_language_bidi, get_language
 
 from xblockutils.resources import ResourceLoader
 from xblockutils.studio_editable import StudioEditableXBlockMixin
@@ -99,6 +99,15 @@ class DiscussionXBlock(XBlock, StudioEditableXBlockMixin, XmlParserMixin):
         return user_service._django_user  # pylint: disable=protected-access
 
     @staticmethod
+    def get_translation_content():
+        try:
+            return 'js/i18n/{lang}/djangojs.js'.format(
+                lang=get_language(),
+            )
+        except IOError:
+            return 'js/i18n/en/djangojs.js'
+
+    @staticmethod
     def vendor_js_dependencies():
         """
         Returns list of vendor JS files that this XBlock depends on.
@@ -156,6 +165,9 @@ class DiscussionXBlock(XBlock, StudioEditableXBlockMixin, XmlParserMixin):
         # Body dependencies
         for js_file in self.js_dependencies():
             fragment.add_javascript_url(static(js_file))
+
+        # Add js translations catalog
+        fragment.add_javascript_url(static(self.get_translation_content()))
 
     def has_permission(self, permission):
         """
