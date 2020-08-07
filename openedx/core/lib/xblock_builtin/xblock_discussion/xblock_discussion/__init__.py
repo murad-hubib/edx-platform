@@ -167,7 +167,7 @@ class DiscussionXBlock(XBlock, StudioEditableXBlockMixin, XmlParserMixin):
             fragment.add_javascript_url(staticfiles_storage.url(js_file))
 
         # Add js translations catalog
-        fragment.add_javascript_url(static(self.get_translation_content()))
+        fragment.add_javascript_url(staticfiles_storage.url(self.get_translation_content()))
 
     def has_permission(self, permission):
         """
