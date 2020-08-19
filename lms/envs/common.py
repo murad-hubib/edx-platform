@@ -1247,6 +1247,9 @@ CREDIT_NOTIFICATION_CACHE_TIMEOUT = 5 * 60 * 60
 MIDDLEWARE_CLASSES = [
     'openedx.core.lib.x_forwarded_for.middleware.XForwardedForMiddleware',
 
+    # Avoid issue with https://blog.heroku.com/chrome-changes-samesite-cookie
+    'django_cookies_samesite.middleware.CookiesSameSite',
+
     'crum.CurrentRequestUserMiddleware',
 
     # A newer and safer request cache.
