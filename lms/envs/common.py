@@ -950,6 +950,8 @@ USE_TZ = True
 SESSION_COOKIE_SECURE = False
 SESSION_SAVE_EVERY_REQUEST = False
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE_FORCE_ALL = True
 
 # CMS base
 CMS_BASE = 'localhost:8001'
